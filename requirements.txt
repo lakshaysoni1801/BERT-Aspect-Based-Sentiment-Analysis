@@ -1,0 +1,28 @@
+# FIX: removed `warnings` and `itertools` - these are Python standard-library
+# modules, not installable PyPI packages, and would cause `pip install -r
+# requirements.txt` to fail outright (pip cannot find a matching distribution).
+#
+# FIX: replaced `sklearn` with `scikit-learn` - the bare "sklearn" package on
+# PyPI is a deprecated shim that now deliberately raises an error on install
+# and tells you to install scikit-learn instead.
+#
+# NOTE: `adapter-transformers` (providing `transformers.adapters.BertAdapterModel`)
+# is an unmaintained fork that has since been superseded by the separate
+# `adapters` library, and is not compatible with recent `transformers`
+# releases. Pinning both packages to versions known to work together is left
+# as a follow-up, since it requires testing against the actual environment
+# rather than a source-level fix - but the entry is flagged here so it isn't
+# missed.
+contractions
+textblob
+spacy
+transformers
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
+tensorflow
+torch
+tqdm
+adapter-transformers
